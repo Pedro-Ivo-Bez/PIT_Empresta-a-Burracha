@@ -30,6 +30,8 @@ namespace EmprestaBurracha.Forms
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Erro = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.Funçao = new System.Windows.Forms.TextBox();
             this.Cpf = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.TextBox();
@@ -44,8 +46,6 @@ namespace EmprestaBurracha.Forms
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.Erro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,45 +68,82 @@ namespace EmprestaBurracha.Forms
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.Size = new System.Drawing.Size(1067, 554);
             this.panel1.TabIndex = 0;
+            // 
+            // Erro
+            // 
+            this.Erro.AutoSize = true;
+            this.Erro.ForeColor = System.Drawing.Color.DarkRed;
+            this.Erro.Location = new System.Drawing.Point(304, 407);
+            this.Erro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Erro.Name = "Erro";
+            this.Erro.Size = new System.Drawing.Size(60, 21);
+            this.Erro.TabIndex = 11;
+            this.Erro.Text = "label5";
+            this.Erro.Visible = false;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Fire;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 24;
+            this.iconButton2.Location = new System.Drawing.Point(749, 396);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(161, 43);
+            this.iconButton2.TabIndex = 10;
+            this.iconButton2.Text = "Demitir";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // Funçao
             // 
-            this.Funçao.Location = new System.Drawing.Point(475, 274);
+            this.Funçao.Location = new System.Drawing.Point(633, 337);
+            this.Funçao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Funçao.Name = "Funçao";
-            this.Funçao.Size = new System.Drawing.Size(100, 23);
+            this.Funçao.Size = new System.Drawing.Size(132, 27);
             this.Funçao.TabIndex = 9;
             // 
             // Cpf
             // 
-            this.Cpf.Location = new System.Drawing.Point(350, 274);
+            this.Cpf.Location = new System.Drawing.Point(467, 337);
+            this.Cpf.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Cpf.Name = "Cpf";
-            this.Cpf.Size = new System.Drawing.Size(119, 23);
+            this.Cpf.Size = new System.Drawing.Size(157, 27);
             this.Cpf.TabIndex = 8;
             // 
             // Email
             // 
-            this.Email.Location = new System.Drawing.Point(183, 274);
+            this.Email.Location = new System.Drawing.Point(244, 337);
+            this.Email.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(161, 23);
+            this.Email.Size = new System.Drawing.Size(213, 27);
             this.Email.TabIndex = 7;
             // 
             // Nome
             // 
-            this.Nome.Location = new System.Drawing.Point(12, 274);
+            this.Nome.Location = new System.Drawing.Point(16, 337);
+            this.Nome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Nome.Name = "Nome";
-            this.Nome.Size = new System.Drawing.Size(165, 23);
+            this.Nome.Size = new System.Drawing.Size(219, 27);
             this.Nome.TabIndex = 6;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(472, 254);
+            this.label4.Location = new System.Drawing.Point(629, 313);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 17);
+            this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 5;
             this.label4.Text = "Função";
             // 
@@ -114,9 +151,10 @@ namespace EmprestaBurracha.Forms
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(347, 258);
+            this.label3.Location = new System.Drawing.Point(463, 318);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 17);
+            this.label3.Size = new System.Drawing.Size(42, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "CPF";
             // 
@@ -124,9 +162,10 @@ namespace EmprestaBurracha.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(180, 254);
+            this.label2.Location = new System.Drawing.Point(240, 313);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 17);
+            this.label2.Size = new System.Drawing.Size(52, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Email";
             // 
@@ -134,9 +173,10 @@ namespace EmprestaBurracha.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 254);
+            this.label1.Location = new System.Drawing.Point(12, 313);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
+            this.label1.Size = new System.Drawing.Size(60, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nome";
             // 
@@ -148,9 +188,10 @@ namespace EmprestaBurracha.Forms
             this.iconButton1.IconColor = System.Drawing.Color.White;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(12, 322);
+            this.iconButton1.Location = new System.Drawing.Point(16, 396);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(121, 35);
+            this.iconButton1.Size = new System.Drawing.Size(161, 43);
             this.iconButton1.TabIndex = 1;
             this.iconButton1.Text = "Adicionar";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,9 +211,10 @@ namespace EmprestaBurracha.Forms
             this.listView1.ForeColor = System.Drawing.Color.White;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 12);
+            this.listView1.Location = new System.Drawing.Point(4, 15);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(693, 225);
+            this.listView1.Size = new System.Drawing.Size(924, 277);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -197,41 +239,13 @@ namespace EmprestaBurracha.Forms
             this.columnHeader4.Text = "Função";
             this.columnHeader4.Width = 200;
             // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Fire;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(562, 322);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(121, 35);
-            this.iconButton2.TabIndex = 10;
-            this.iconButton2.Text = "Demitir";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
-            // 
-            // Erro
-            // 
-            this.Erro.AutoSize = true;
-            this.Erro.ForeColor = System.Drawing.Color.DarkRed;
-            this.Erro.Location = new System.Drawing.Point(228, 331);
-            this.Erro.Name = "Erro";
-            this.Erro.Size = new System.Drawing.Size(47, 17);
-            this.Erro.TabIndex = 11;
-            this.Erro.Text = "label5";
-            this.Erro.Visible = false;
-            // 
             // Funcionários
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Funcionários";
             this.Text = "Funcionários";
             this.Load += new System.EventHandler(this.Funcionários_Load);

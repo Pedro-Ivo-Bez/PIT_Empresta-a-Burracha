@@ -87,6 +87,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
+    <EmbeddedResource Include="Forms\Emprestar.resx">
+      <DependentUpon>Emprestar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Empréstimos.resx">
       <DependentUpon>Empréstimos.cs</DependentUpon>
     </EmbeddedResource>
