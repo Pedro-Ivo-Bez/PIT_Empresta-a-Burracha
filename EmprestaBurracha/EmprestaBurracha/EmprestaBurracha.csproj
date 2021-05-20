@@ -51,7 +51,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Console.cs" />
+    <Compile Include="EmprestaBurrachaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmprestaBurrachaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EmprestaBurrachaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmprestaBurrachaDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Emprestimo.cs" />
+    <Compile Include="DB.cs" />
     <Compile Include="Forms\Empréstimos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +128,28 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <None Include="EmprestaBurrachaDataSet.xsc">
+      <DependentUpon>EmprestaBurrachaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmprestaBurrachaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmprestaBurrachaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmprestaBurrachaDataSet.xss">
+      <DependentUpon>EmprestaBurrachaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EmprestaBurrachaDataSet1.xsc">
+      <DependentUpon>EmprestaBurrachaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EmprestaBurrachaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmprestaBurrachaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EmprestaBurrachaDataSet1.xss">
+      <DependentUpon>EmprestaBurrachaDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

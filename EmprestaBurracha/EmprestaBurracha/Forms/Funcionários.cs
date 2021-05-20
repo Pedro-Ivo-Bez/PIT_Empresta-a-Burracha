@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace EmprestaBurracha.Forms
 {
@@ -16,33 +17,44 @@ namespace EmprestaBurracha.Forms
         {
             InitializeComponent();
         }
-
+        
         private void Funcionários_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
+            this.funcionariosTableAdapter.Fill(this.emprestaBurrachaDataSet.Funcionarios);
             Listar();
         }
+        
         private void Listar()
         {
-            listView1.Items.Clear();
-            foreach (Funcionario f in Console.Funcionarios)
+            SqlDataAdapter adaptador = null;
+            try
             {
-                if(f.Ativo)
+                adaptador = DB.RetornarFuncionarios();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Erro ao buscar!");
+            }
+            finally
+            {
+                if (adaptador != null)
                 {
-                    ListViewItem item = new ListViewItem(f.Nome);
-                    item.SubItems.Add(f.Email);
-                    item.SubItems.Add(f.Cpf);
-                    item.SubItems.Add(f.Função);
-                    listView1.Items.Add(item);
+                    DataTable tabela = new DataTable();
+                    adaptador.Fill(tabela);
+                    FuncionariosDGV.DataSource = tabela;
                 }
+                else MessageBox.Show("Erro ao buscar!");
             }
         }
+        
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
             if(Nome.Text != "" && Email.Text != "" && Cpf.Text != "" && Funçao.Text != "")
             {
                 Erro.Visible = false;
-                Console.AdicionarFuncionario(new Funcionario(Nome.Text, Email.Text, Cpf.Text, Funçao.Text));
+                DB.InserirFuncionario(new Funcionario(Nome.Text, Email.Text, Cpf.Text, Funçao.Text));
                 Nome.Text = "";
                 Email.Text = "";
                 Cpf.Text = "";
@@ -56,14 +68,9 @@ namespace EmprestaBurracha.Forms
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            foreach(Funcionario f in Console.Funcionarios)
-            {
-                if(f.Nome.Equals(listView1.SelectedItems[0].Text))
-                {
-                    f.Ativo = false;
-                }
-            }
-            listView1.Items.Remove(listView1.SelectedItems[0]);
+            int LinhaSelecionada = FuncionariosDGV.SelectedCells[0].RowIndex;
+            string NomeFuncionario = (string)FuncionariosDGV.Rows[LinhaSelecionada].Cells[0].Value;
+            DB.DemitirFuncionario(NomeFuncionario);
             Listar();
         }
     }

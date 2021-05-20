@@ -29,25 +29,40 @@ namespace EmprestaBurracha.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.Erro = new System.Windows.Forms.Label();
             this.Quantidade = new System.Windows.Forms.NumericUpDown();
             this.Nome = new System.Windows.Forms.TextBox();
             this.LabelQuant = new System.Windows.Forms.Label();
             this.LabelNome = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.emprestaBurrachaDataSet = new EmprestaBurracha.EmprestaBurrachaDataSet();
+            this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.funcionariosTableAdapter = new EmprestaBurracha.EmprestaBurrachaDataSetTableAdapters.FuncionariosTableAdapter();
+            this.MateriaisDVG = new System.Windows.Forms.DataGridView();
+            this.emprestaBurrachaDataSet1 = new EmprestaBurracha.EmprestaBurrachaDataSet1();
+            this.materiaisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materiaisTableAdapter = new EmprestaBurracha.EmprestaBurrachaDataSet1TableAdapters.MateriaisTableAdapter();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Quantidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emprestaBurrachaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MateriaisDVG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emprestaBurrachaDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaisBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(56)))));
+            this.panel1.Controls.Add(this.MateriaisDVG);
             this.panel1.Controls.Add(this.checkedListBox1);
             this.panel1.Controls.Add(this.Erro);
             this.panel1.Controls.Add(this.Quantidade);
@@ -55,20 +70,27 @@ namespace EmprestaBurracha.Forms
             this.panel1.Controls.Add(this.LabelQuant);
             this.panel1.Controls.Add(this.LabelNome);
             this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.listView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(965, 542);
             this.panel1.TabIndex = 0;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(336, 337);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(8, 4);
+            this.checkedListBox1.TabIndex = 7;
             // 
             // Erro
             // 
             this.Erro.AutoSize = true;
             this.Erro.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Erro.ForeColor = System.Drawing.Color.Maroon;
-            this.Erro.Location = new System.Drawing.Point(300, 407);
+            this.Erro.Location = new System.Drawing.Point(300, 408);
             this.Erro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Erro.Name = "Erro";
             this.Erro.Size = new System.Drawing.Size(60, 21);
@@ -79,7 +101,12 @@ namespace EmprestaBurracha.Forms
             // Quantidade
             // 
             this.Quantidade.Location = new System.Drawing.Point(304, 336);
-            this.Quantidade.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Quantidade.Margin = new System.Windows.Forms.Padding(4);
+            this.Quantidade.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
             this.Quantidade.Name = "Quantidade";
             this.Quantidade.Size = new System.Drawing.Size(112, 22);
             this.Quantidade.TabIndex = 5;
@@ -87,7 +114,7 @@ namespace EmprestaBurracha.Forms
             // Nome
             // 
             this.Nome.Location = new System.Drawing.Point(16, 337);
-            this.Nome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Nome.Margin = new System.Windows.Forms.Padding(4);
             this.Nome.Name = "Nome";
             this.Nome.Size = new System.Drawing.Size(248, 22);
             this.Nome.TabIndex = 4;
@@ -128,7 +155,7 @@ namespace EmprestaBurracha.Forms
             this.iconButton1.IconSize = 24;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.Location = new System.Drawing.Point(20, 400);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(145, 36);
             this.iconButton1.TabIndex = 1;
@@ -138,50 +165,88 @@ namespace EmprestaBurracha.Forms
             this.iconButton1.UseVisualStyleBackColor = true;
             this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
-            // listView1
+            // emprestaBurrachaDataSet
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            this.listView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.Color.White;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(4, 15);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(896, 278);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.emprestaBurrachaDataSet.DataSetName = "EmprestaBurrachaDataSet";
+            this.emprestaBurrachaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ID
+            // funcionariosBindingSource
             // 
-            this.ID.Text = "ID";
-            this.ID.Width = 50;
+            this.funcionariosBindingSource.DataMember = "Funcionarios";
+            this.funcionariosBindingSource.DataSource = this.emprestaBurrachaDataSet;
             // 
-            // columnHeader2
+            // funcionariosTableAdapter
             // 
-            this.columnHeader2.Text = "Produto";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 724;
+            this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
-            // columnHeader3
+            // MateriaisDVG
             // 
-            this.columnHeader3.Text = "Quantidade";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 100;
+            this.MateriaisDVG.AutoGenerateColumns = false;
+            this.MateriaisDVG.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.MateriaisDVG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MateriaisDVG.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MateriaisDVG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.MateriaisDVG.ColumnHeadersHeight = 25;
+            this.MateriaisDVG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nomeDataGridViewTextBoxColumn,
+            this.quantidadeDataGridViewTextBoxColumn});
+            this.MateriaisDVG.DataSource = this.materiaisBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MateriaisDVG.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MateriaisDVG.Location = new System.Drawing.Point(-3, 0);
+            this.MateriaisDVG.Name = "MateriaisDVG";
+            this.MateriaisDVG.RowHeadersVisible = false;
+            this.MateriaisDVG.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            this.MateriaisDVG.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.MateriaisDVG.RowTemplate.Height = 24;
+            this.MateriaisDVG.Size = new System.Drawing.Size(965, 150);
+            this.MateriaisDVG.TabIndex = 8;
             // 
-            // checkedListBox1
+            // emprestaBurrachaDataSet1
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(336, 337);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(8, 4);
-            this.checkedListBox1.TabIndex = 7;
+            this.emprestaBurrachaDataSet1.DataSetName = "EmprestaBurrachaDataSet1";
+            this.emprestaBurrachaDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // materiaisBindingSource
+            // 
+            this.materiaisBindingSource.DataMember = "Materiais";
+            this.materiaisBindingSource.DataSource = this.emprestaBurrachaDataSet1;
+            // 
+            // materiaisTableAdapter
+            // 
+            this.materiaisTableAdapter.ClearBeforeFill = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.Width = 700;
+            // 
+            // quantidadeDataGridViewTextBoxColumn
+            // 
+            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
+            this.quantidadeDataGridViewTextBoxColumn.Width = 125;
             // 
             // Estoque
             // 
@@ -189,13 +254,18 @@ namespace EmprestaBurracha.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 542);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Estoque";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Teste_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Quantidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emprestaBurrachaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MateriaisDVG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emprestaBurrachaDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materiaisBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,10 +273,6 @@ namespace EmprestaBurracha.Forms
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        internal System.Windows.Forms.ColumnHeader ID;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.Label LabelQuant;
@@ -214,5 +280,14 @@ namespace EmprestaBurracha.Forms
         private System.Windows.Forms.NumericUpDown Quantidade;
         private System.Windows.Forms.Label Erro;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private EmprestaBurrachaDataSet emprestaBurrachaDataSet;
+        private System.Windows.Forms.BindingSource funcionariosBindingSource;
+        private EmprestaBurrachaDataSetTableAdapters.FuncionariosTableAdapter funcionariosTableAdapter;
+        private System.Windows.Forms.DataGridView MateriaisDVG;
+        private EmprestaBurrachaDataSet1 emprestaBurrachaDataSet1;
+        private System.Windows.Forms.BindingSource materiaisBindingSource;
+        private EmprestaBurrachaDataSet1TableAdapters.MateriaisTableAdapter materiaisTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
     }
 }

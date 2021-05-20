@@ -30,15 +30,16 @@ namespace EmprestaBurracha.Forms
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Funcionarios = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LabelQuant = new System.Windows.Forms.Label();
+            this.Calendario = new System.Windows.Forms.MonthCalendar();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.Quantidade = new System.Windows.Forms.NumericUpDown();
             this.Itens = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Quantidade = new System.Windows.Forms.NumericUpDown();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.Calendario = new System.Windows.Forms.MonthCalendar();
-            this.LabelQuant = new System.Windows.Forms.Label();
+            this.Funcionarios = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LabelErro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Quantidade)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +47,7 @@ namespace EmprestaBurracha.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.LabelErro);
             this.panel1.Controls.Add(this.LabelQuant);
             this.panel1.Controls.Add(this.Calendario);
             this.panel1.Controls.Add(this.iconButton1);
@@ -58,27 +60,57 @@ namespace EmprestaBurracha.Forms
             this.panel1.Size = new System.Drawing.Size(933, 450);
             this.panel1.TabIndex = 0;
             // 
-            // Funcionarios
+            // LabelQuant
             // 
-            this.Funcionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            this.Funcionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Funcionarios.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1});
-            this.Funcionarios.ForeColor = System.Drawing.Color.White;
-            this.Funcionarios.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.Funcionarios.HideSelection = false;
-            this.Funcionarios.Location = new System.Drawing.Point(27, 22);
-            this.Funcionarios.Margin = new System.Windows.Forms.Padding(4);
-            this.Funcionarios.Name = "Funcionarios";
-            this.Funcionarios.Size = new System.Drawing.Size(201, 208);
-            this.Funcionarios.TabIndex = 1;
-            this.Funcionarios.UseCompatibleStateImageBehavior = false;
-            this.Funcionarios.View = System.Windows.Forms.View.Details;
+            this.LabelQuant.AutoSize = true;
+            this.LabelQuant.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelQuant.ForeColor = System.Drawing.Color.White;
+            this.LabelQuant.Location = new System.Drawing.Point(736, 83);
+            this.LabelQuant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelQuant.Name = "LabelQuant";
+            this.LabelQuant.Size = new System.Drawing.Size(114, 21);
+            this.LabelQuant.TabIndex = 7;
+            this.LabelQuant.Text = "Quantidade";
             // 
-            // columnHeader1
+            // Calendario
             // 
-            this.columnHeader1.Text = "Nome";
-            this.columnHeader1.Width = 200;
+            this.Calendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.Calendario.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendario.Location = new System.Drawing.Point(27, 234);
+            this.Calendario.Name = "Calendario";
+            this.Calendario.TabIndex = 6;
+            this.Calendario.TitleBackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Calendario.TitleForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Calendario.TrailingForeColor = System.Drawing.SystemColors.Desktop;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
+            this.iconButton1.IconColor = System.Drawing.Color.White;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 24;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(522, 316);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(145, 36);
+            this.iconButton1.TabIndex = 5;
+            this.iconButton1.Text = "Emprestar";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.Location = new System.Drawing.Point(740, 107);
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.Size = new System.Drawing.Size(120, 22);
+            this.Quantidade.TabIndex = 3;
             // 
             // Itens
             // 
@@ -108,57 +140,38 @@ namespace EmprestaBurracha.Forms
             this.columnHeader3.Text = "Quantidade";
             this.columnHeader3.Width = 174;
             // 
-            // Quantidade
+            // Funcionarios
             // 
-            this.Quantidade.Location = new System.Drawing.Point(740, 107);
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.Size = new System.Drawing.Size(120, 22);
-            this.Quantidade.TabIndex = 3;
+            this.Funcionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.Funcionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Funcionarios.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+            this.Funcionarios.ForeColor = System.Drawing.Color.White;
+            this.Funcionarios.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.Funcionarios.HideSelection = false;
+            this.Funcionarios.Location = new System.Drawing.Point(27, 22);
+            this.Funcionarios.Margin = new System.Windows.Forms.Padding(4);
+            this.Funcionarios.Name = "Funcionarios";
+            this.Funcionarios.Size = new System.Drawing.Size(201, 208);
+            this.Funcionarios.TabIndex = 1;
+            this.Funcionarios.UseCompatibleStateImageBehavior = false;
+            this.Funcionarios.View = System.Windows.Forms.View.Details;
             // 
-            // iconButton1
+            // columnHeader1
             // 
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileInvoice;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(522, 316);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(145, 36);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.Text = "Emprestar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.columnHeader1.Text = "Nome";
+            this.columnHeader1.Width = 200;
             // 
-            // Calendario
+            // LabelErro
             // 
-            this.Calendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            this.Calendario.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calendario.Location = new System.Drawing.Point(27, 234);
-            this.Calendario.Name = "Calendario";
-            this.Calendario.TabIndex = 6;
-            this.Calendario.TitleBackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Calendario.TitleForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Calendario.TrailingForeColor = System.Drawing.SystemColors.Desktop;
-            // 
-            // LabelQuant
-            // 
-            this.LabelQuant.AutoSize = true;
-            this.LabelQuant.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelQuant.ForeColor = System.Drawing.Color.White;
-            this.LabelQuant.Location = new System.Drawing.Point(736, 83);
-            this.LabelQuant.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabelQuant.Name = "LabelQuant";
-            this.LabelQuant.Size = new System.Drawing.Size(114, 21);
-            this.LabelQuant.TabIndex = 7;
-            this.LabelQuant.Text = "Quantidade";
+            this.LabelErro.AutoSize = true;
+            this.LabelErro.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.LabelErro.ForeColor = System.Drawing.Color.Maroon;
+            this.LabelErro.Location = new System.Drawing.Point(559, 381);
+            this.LabelErro.Name = "LabelErro";
+            this.LabelErro.Size = new System.Drawing.Size(53, 20);
+            this.LabelErro.TabIndex = 8;
+            this.LabelErro.Text = "label1";
             // 
             // Emprestar
             // 
@@ -188,5 +201,6 @@ namespace EmprestaBurracha.Forms
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.MonthCalendar Calendario;
         private System.Windows.Forms.Label LabelQuant;
+        private System.Windows.Forms.Label LabelErro;
     }
 }

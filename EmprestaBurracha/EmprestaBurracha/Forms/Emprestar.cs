@@ -36,6 +36,14 @@ namespace EmprestaBurracha.Forms
                 }
             }
         }
+        private void Erro(String erro)
+        {
+            LabelErro.Text = erro;
+        }
+        private void RemoverErro()
+        {
+            LabelErro.Text = " ";
+        }
         private void ListarItens()
         {
             Itens.Items.Clear();
@@ -59,6 +67,7 @@ namespace EmprestaBurracha.Forms
                         if (f.Nome == Funcionarios.SelectedItems[0].Text)
                         {
                             Console.AdicionarEmprestimo(new Emprestimo(m, Convert.ToInt32(Quantidade.Value), Calendario.SelectionStart, f));
+                            ListarItens();
                         }
                     }   
                 }
