@@ -69,8 +69,28 @@ namespace EmprestaBurracha.Forms
         private void iconButton2_Click(object sender, EventArgs e)
         {
             int LinhaSelecionada = FuncionariosDGV.SelectedCells[0].RowIndex;
+            string CpfFuncionario = (string)FuncionariosDGV.Rows[LinhaSelecionada].Cells[2].Value;
             string NomeFuncionario = (string)FuncionariosDGV.Rows[LinhaSelecionada].Cells[0].Value;
-            DataBase.DemitirFuncionario(NomeFuncionario);
+
+            Emprestimo emp = DataBase.RetornarEmprestimoUnico(NomeFuncionario);
+
+            if(emp != null) 
+            {
+                DialogResult res = MessageBox.Show("Esse funcionários tem empréstimos ativos, deseja devolver todos os empréstimos?", "Devolver", MessageBoxButtons.YesNo);
+                if(res == DialogResult.Yes)
+                {
+                    DataBase.RemoverTodosEmprestimosDeUmFuncionario(NomeFuncionario, emp.Material, emp.Quantidade);
+                    DataBase.DemitirFuncionario(CpfFuncionario);
+                }
+                else if(res == DialogResult.No) 
+                {
+                    DataBase.DemitirFuncionario(CpfFuncionario);
+                }
+            }
+            else
+            {
+                DataBase.DemitirFuncionario(CpfFuncionario);
+            }
             Listar();
         }
     }

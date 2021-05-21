@@ -20,13 +20,14 @@ namespace EmprestaBurracha.Forms
 
         private void Emprestar_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet2.Emprestimos'. Você pode movê-la ou removê-la conforme necessário.
+            this.emprestimosTableAdapter.Fill(this.emprestaBurrachaDataSet2.Emprestimos);
             // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet1.Materiais'. Você pode movê-la ou removê-la conforme necessário.
             this.materiaisTableAdapter.Fill(this.emprestaBurrachaDataSet1.Materiais);
             // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
             this.funcionariosTableAdapter.Fill(this.emprestaBurrachaDataSet.Funcionarios);
             ListarFuncionarios();
             ListarItens();
-
         }
 
         private void ListarItens()
@@ -73,16 +74,6 @@ namespace EmprestaBurracha.Forms
                 else MessageBox.Show("Erro ao buscar!");
             }
         }
-        private void Erro(String erro)
-        {
-            LabelErro.Text = erro;
-            LabelErro.Visible = true;
-        }
-        private void RemoverErro()
-        {
-            LabelErro.Text = " ";
-            LabelErro.Visible = false;
-        }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -96,27 +87,26 @@ namespace EmprestaBurracha.Forms
             Material m = DataBase.RetornarMaterialUnico(NomeMaterial);
 
             DateTime hoje = DateTime.Now;
-            if (SelecionadorDatas.Value < hoje)
-            { 
-                Erro("Insira uma data válida");
+            if (SelecionadorDatas.Value < hoje || SelecionadorDatas.Value == hoje) 
+            {
+                LabelDevolução.ForeColor = Color.Red;
                 return;
             }
             if (Quantidade.Value == 0 || Quantidade.Value > m.Quantidade)
             {
-                Erro("Insira uma quantidade válida de itens");
+                LabelDevolução.ForeColor = Color.White;
+                LabelQuant.ForeColor = Color.Red;
                 return;
             }
-            if (SelecionadorDatas.Value.Day != hoje.Day || SelecionadorDatas.Value.Month != hoje.Month || SelecionadorDatas.Value.Year != hoje.Year)
-            {
-                DataBase.Emprestar(m, f, Convert.ToInt32(Quantidade.Value), SelecionadorDatas.Value);
+                LabelQuant.ForeColor = Color.White;
+                DataBase.Emprestar(m, f, Convert.ToInt32(Quantidade.Value), SelecionadorDatas.Value, DataBase.RetornarId());
                 DataBase.AdicionarOuModificarMaterial(NomeMaterial, new Material(NomeMaterial, m.Quantidade - Convert.ToInt32(Quantidade.Value)));
                 ListarItens();
-                RemoverErro();
-            }
-            else
-            {
-                Erro("Insira uma data que não seja hoje");
-            }
+
+                Quantidade.Value = 0;
+                SelecionadorDatas.Value = DateTime.Now;
+
         }
+
     }
 }
