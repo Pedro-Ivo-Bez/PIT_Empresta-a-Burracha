@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace EmprestaBurracha.Forms
 {
@@ -19,60 +20,103 @@ namespace EmprestaBurracha.Forms
 
         private void Emprestar_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet1.Materiais'. Você pode movê-la ou removê-la conforme necessário.
+            this.materiaisTableAdapter.Fill(this.emprestaBurrachaDataSet1.Materiais);
+            // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
+            this.funcionariosTableAdapter.Fill(this.emprestaBurrachaDataSet.Funcionarios);
             ListarFuncionarios();
             ListarItens();
 
         }
 
+        private void ListarItens()
+        {
+            SqlDataAdapter adaptador = null;
+            try
+            {
+                adaptador = DataBase.RetornarMateriais();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Erro ao buscar!");
+            }
+            finally
+            {
+                if (adaptador != null)
+                {
+                    DataTable tabela = new DataTable();
+                    adaptador.Fill(tabela);
+                    MateriaisDVG.DataSource = tabela;
+                }
+                else MessageBox.Show("Erro ao buscar!");
+            }
+        }
         private void ListarFuncionarios()
         {
-            Funcionarios.Items.Clear();
-            foreach (Funcionario f in Console.Funcionarios)
+            SqlDataAdapter adaptador = null;
+            try
             {
-                if (f.Ativo)
+                adaptador = DataBase.RetornarFuncionarios();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Erro ao buscar!");
+            }
+            finally
+            {
+                if (adaptador != null)
                 {
-                    ListViewItem item = new ListViewItem(f.Nome);
-                    Funcionarios.Items.Add(item);
+                    DataTable tabela = new DataTable();
+                    adaptador.Fill(tabela);
+                    FuncionariosDGV.DataSource = tabela;
                 }
+                else MessageBox.Show("Erro ao buscar!");
             }
         }
         private void Erro(String erro)
         {
             LabelErro.Text = erro;
+            LabelErro.Visible = true;
         }
         private void RemoverErro()
         {
             LabelErro.Text = " ";
-        }
-        private void ListarItens()
-        {
-            Itens.Items.Clear();
-            foreach (Material m in Console.Materiais)
-            {
-                    ListViewItem item = new ListViewItem(m.Nome);
-                    item.SubItems.Add(Convert.ToString(m.Quantidade));
-                    Itens.Items.Add(item);
-            }
+            LabelErro.Visible = false;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            foreach(Material m in Console.Materiais)
-            {
-                if(m.Nome == Itens.SelectedItems[0].Text)
-                {
-                    foreach (Funcionario f in Console.Funcionarios)
-                    {
+            int LinhaSelecionada = FuncionariosDGV.SelectedCells[0].RowIndex;
+            string NomeFuncionario = (string)FuncionariosDGV.Rows[LinhaSelecionada].Cells[0].Value;
 
-                        if (f.Nome == Funcionarios.SelectedItems[0].Text)
-                        {
-                            Console.AdicionarEmprestimo(new Emprestimo(m, Convert.ToInt32(Quantidade.Value), Calendario.SelectionStart, f));
-                            ListarItens();
-                        }
-                    }   
-                }
+            int LinhaSelecionada1 = MateriaisDVG.SelectedCells[0].RowIndex;
+            string NomeMaterial = (string)MateriaisDVG.Rows[LinhaSelecionada1].Cells[0].Value;
+
+            Funcionario f = DataBase.RetornarFuncionarioUnico(NomeFuncionario);
+            Material m = DataBase.RetornarMaterialUnico(NomeMaterial);
+
+            DateTime hoje = DateTime.Now;
+            if (SelecionadorDatas.Value < hoje)
+            { 
+                Erro("Insira uma data válida");
+                return;
             }
-
+            if (Quantidade.Value == 0 || Quantidade.Value > m.Quantidade)
+            {
+                Erro("Insira uma quantidade válida de itens");
+                return;
+            }
+            if (SelecionadorDatas.Value.Day != hoje.Day || SelecionadorDatas.Value.Month != hoje.Month || SelecionadorDatas.Value.Year != hoje.Year)
+            {
+                DataBase.Emprestar(m, f, Convert.ToInt32(Quantidade.Value), SelecionadorDatas.Value);
+                DataBase.AdicionarOuModificarMaterial(NomeMaterial, new Material(NomeMaterial, m.Quantidade - Convert.ToInt32(Quantidade.Value)));
+                ListarItens();
+                RemoverErro();
+            }
+            else
+            {
+                Erro("Insira uma data que não seja hoje");
+            }
         }
     }
 }

@@ -30,7 +30,7 @@ namespace EmprestaBurracha.Forms
             SqlDataAdapter adaptador = null;
             try
             {
-                adaptador = DB.RetornarFuncionarios();
+                adaptador = DataBase.RetornarFuncionarios();
             }
             catch (Exception exception)
             {
@@ -54,7 +54,7 @@ namespace EmprestaBurracha.Forms
             if(Nome.Text != "" && Email.Text != "" && Cpf.Text != "" && Funçao.Text != "")
             {
                 Erro.Visible = false;
-                DB.InserirFuncionario(new Funcionario(Nome.Text, Email.Text, Cpf.Text, Funçao.Text));
+                DataBase.InserirFuncionario(new Funcionario(Nome.Text, Email.Text, Cpf.Text, Funçao.Text));
                 Nome.Text = "";
                 Email.Text = "";
                 Cpf.Text = "";
@@ -70,7 +70,7 @@ namespace EmprestaBurracha.Forms
         {
             int LinhaSelecionada = FuncionariosDGV.SelectedCells[0].RowIndex;
             string NomeFuncionario = (string)FuncionariosDGV.Rows[LinhaSelecionada].Cells[0].Value;
-            DB.DemitirFuncionario(NomeFuncionario);
+            DataBase.DemitirFuncionario(NomeFuncionario);
             Listar();
         }
     }

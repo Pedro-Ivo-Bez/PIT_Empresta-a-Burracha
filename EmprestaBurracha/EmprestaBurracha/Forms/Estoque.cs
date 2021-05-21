@@ -36,7 +36,7 @@ namespace EmprestaBurracha.Forms
             SqlDataAdapter adaptador = null;
             try
             {
-                adaptador = DB.RetornarMateriais();
+                adaptador = DataBase.RetornarMateriais();
             }
             catch (Exception exception)
             {
@@ -58,13 +58,49 @@ namespace EmprestaBurracha.Forms
         {
             if (Nome.Text != "" && Quantidade.Value != 0)
             {
-                DB.InserirMaterial(new Material(Nome.Text, Convert.ToInt32(Quantidade.Value)));
+                DataBase.AdicionarOuModificarMaterial(Nome.Text, new Material(Nome.Text, Convert.ToInt32(Quantidade.Value)));
                 Listar();
+                Nome.Text = "";
+                Quantidade.Value = 0;
+                Nome.Focus();
                 Erro.Visible = false;
+                Nome.Enabled = true;
                 return;
             }
+            Nome.Enabled = true;
             Erro.Text = "Insira todos os dados corretamente";
             Erro.Visible = true;
+        }
+
+        private void MateriaisDVG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int LinhaSelecionada = MateriaisDVG.SelectedCells[0].RowIndex;
+            string NomeMaterial = (string)MateriaisDVG.Rows[LinhaSelecionada].Cells[0].Value;
+            int QuantidadeMaterial = (int)MateriaisDVG.Rows[LinhaSelecionada].Cells[1].Value;
+
+            Nome.Text = NomeMaterial;
+            Nome.Enabled = false;
+            Quantidade.Value = QuantidadeMaterial;
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            Nome.Text = "";
+            Quantidade.Value = 0;
+            Nome.Enabled = true;
+            Listar();
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            int LinhaSelecionada = MateriaisDVG.SelectedCells[0].RowIndex;
+            string NomeMaterial = (string)MateriaisDVG.Rows[LinhaSelecionada].Cells[0].Value;
+
+            DataBase.RemoverMaterial(NomeMaterial);
+            Nome.Text = "";
+            Quantidade.Value = 0;
+            Nome.Enabled = true;
+            Listar();
         }
     }
 }

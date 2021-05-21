@@ -26,12 +26,13 @@ namespace EmprestaBurracha.Forms
                 item.SubItems.Add(e.Material.Nome);
                 item.SubItems.Add($"{e.Devolução.Day}/{e.Devolução.Month}/{e.Devolução.Year}");
                 item.SubItems.Add(Convert.ToString(e.Quantidade));
-                listView1.Items.Add(item);
             }
         }
 
         private void Empréstimos_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet2.Emprestimos'. Você pode movê-la ou removê-la conforme necessário.
+            this.emprestimosTableAdapter.Fill(this.emprestaBurrachaDataSet2.Emprestimos);
             Listar();
         }
     }
