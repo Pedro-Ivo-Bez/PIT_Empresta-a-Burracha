@@ -54,11 +54,8 @@ namespace EmprestaBurracha.Forms
             if(Nome.Text != "" && Email.Text != "" && Cpf.Text != "" && Funçao.Text != "")
             {
                 Erro.Visible = false;
-                DataBase.InserirFuncionario(new Funcionario(Nome.Text, Email.Text, Cpf.Text, Funçao.Text));
-                Nome.Text = "";
-                Email.Text = "";
-                Cpf.Text = "";
-                Funçao.Text = "";
+                DataBase.AdicionarOuEditarFuncionario(new Funcionario(Nome.Text, Email.Text, Cpf.Text, Funçao.Text), Cpf.Text);
+                Limpar();
                 Listar();
                 return;
             }
@@ -79,19 +76,49 @@ namespace EmprestaBurracha.Forms
                 DialogResult res = MessageBox.Show("Esse funcionários tem empréstimos ativos, deseja devolver todos os empréstimos?", "Devolver", MessageBoxButtons.YesNo);
                 if(res == DialogResult.Yes)
                 {
+                    Limpar();
                     DataBase.RemoverTodosEmprestimosDeUmFuncionario(NomeFuncionario, emp.Material, emp.Quantidade);
                     DataBase.DemitirFuncionario(CpfFuncionario);
                 }
                 else if(res == DialogResult.No) 
                 {
+                    Limpar();
                     DataBase.DemitirFuncionario(CpfFuncionario);
                 }
             }
             else
             {
+                Limpar();
                 DataBase.DemitirFuncionario(CpfFuncionario);
             }
             Listar();
+        }
+
+        private void FuncionariosDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int LinhaSelecionada = FuncionariosDGV.SelectedCells[0].RowIndex;
+            string NomeFuncionario = (string)FuncionariosDGV.Rows[LinhaSelecionada].Cells[0].Value;
+
+            Funcionario f = DataBase.RetornarFuncionarioUnico(NomeFuncionario);
+
+            Cpf.Enabled = false;
+            Nome.Text = f.Nome;
+            Email.Text = f.Email;
+            Cpf.Text = f.Cpf;
+            Funçao.Text = f.Função;
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            Limpar();
+        }
+        private void Limpar()
+        {
+            Cpf.Enabled = true;
+            Nome.Text = "";
+            Email.Text = "";
+            Cpf.Text = "";
+            Funçao.Text = "";
         }
     }
 }

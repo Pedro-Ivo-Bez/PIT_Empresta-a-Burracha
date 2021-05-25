@@ -29,6 +29,7 @@ namespace EmprestaBurracha
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.PainelPrincipal = new System.Windows.Forms.Panel();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -143,7 +144,7 @@ namespace EmprestaBurracha
             // 
             this.PaginaPainel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(56)))));
             this.PaginaPainel.Location = new System.Drawing.Point(217, 81);
-            this.PaginaPainel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PaginaPainel.Margin = new System.Windows.Forms.Padding(4);
             this.PaginaPainel.Name = "PaginaPainel";
             this.PaginaPainel.Size = new System.Drawing.Size(900, 470);
             this.PaginaPainel.TabIndex = 1;
@@ -154,7 +155,7 @@ namespace EmprestaBurracha
             this.HomePainel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(21)))), ((int)(((byte)(51)))));
             this.HomePainel.Controls.Add(this.Inicio);
             this.HomePainel.Location = new System.Drawing.Point(217, 0);
-            this.HomePainel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HomePainel.Margin = new System.Windows.Forms.Padding(4);
             this.HomePainel.Name = "HomePainel";
             this.HomePainel.Size = new System.Drawing.Size(913, 84);
             this.HomePainel.TabIndex = 2;
@@ -189,9 +190,12 @@ namespace EmprestaBurracha
             this.Controls.Add(this.PaginaPainel);
             this.Controls.Add(this.PainelPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Menu";
-            this.Text = "Form1";
+            this.Text = "EmprestaBurracha";
             this.PainelPrincipal.ResumeLayout(false);
             this.HomePainel.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -54,9 +54,17 @@ namespace EmprestaBurracha.Forms
             int IdEmprestimo = (int)EmprestimosDGV.Rows[LinhaSelecionada].Cells[0].Value;
             int QuantidadeEmprestimo = (int)EmprestimosDGV.Rows[LinhaSelecionada].Cells[3].Value;
             string MaterialEmprestimo = (string)EmprestimosDGV.Rows[LinhaSelecionada].Cells[2].Value;
+
             Material m = DataBase.RetornarMaterialUnico(MaterialEmprestimo);
 
-            DataBase.AdicionarOuModificarMaterial(MaterialEmprestimo, new Material(m.Nome, m.Quantidade + QuantidadeEmprestimo));
+            if(m != null)
+            {
+                DataBase.AdicionarOuModificarMaterial(MaterialEmprestimo, new Material(m.Nome, m.Quantidade + QuantidadeEmprestimo));
+            }
+            else
+            {
+                DataBase.AdicionarOuModificarMaterial(MaterialEmprestimo, new Material(MaterialEmprestimo, QuantidadeEmprestimo));
+            }        
             DataBase.DesfazerEmprestimo(IdEmprestimo);
             Listar();
         }

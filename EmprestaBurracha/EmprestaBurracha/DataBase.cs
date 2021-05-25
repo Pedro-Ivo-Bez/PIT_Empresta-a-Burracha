@@ -182,5 +182,13 @@ namespace EmprestaBurracha
             sql.CommandText = $"UPDATE Ids SET Id = '{id + 1}' WHERE Id = '{id}'";
             Executar(out SqlDataAdapter adaptador);
         }
+        public static void AdicionarOuEditarFuncionario(Funcionario f, string cpf)
+        {
+            sql.CommandText = $"UPDATE Funcionarios SET Nome = '{f.Nome}', Email = '{f.Email}', Cpf = '{f.Cpf}', Funcao = '{f.Função}' WHERE Cpf = '{cpf}'";
+            int i = Executar(out SqlDataAdapter adaptador);
+
+            if (i > 0) return;
+            InserirFuncionario(f);
+        }
     }
 }
