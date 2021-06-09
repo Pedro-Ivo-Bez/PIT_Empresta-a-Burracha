@@ -1,0 +1,16 @@
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\bin\Debug\EmprestaBurracha.exe.config
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\bin\Debug\EmprestaBurracha.exe
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\bin\Debug\EmprestaBurracha.pdb
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.csprojAssemblyReference.cache
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.Properties.Resources.resources
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.csproj.GenerateResource.cache
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.csproj.CoreCompileInputs.cache
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.exe
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.pdb
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\bin\Debug\FontAwesome.Sharp.dll
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.csproj.CopyComplete
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.Menu.resources
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.Forms.Empréstimos.resources
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.Forms.Estoque.resources
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.Forms.Funcionários.resources
+E:\EmprestaBurracha\EmprestaBurracha\EmprestaBurracha\obj\Debug\EmprestaBurracha.Forms.Emprestar.resources
