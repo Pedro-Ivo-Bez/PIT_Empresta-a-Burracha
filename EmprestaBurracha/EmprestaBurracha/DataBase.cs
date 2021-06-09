@@ -106,6 +106,24 @@ namespace EmprestaBurracha
             Executar(out SqlDataAdapter adaptador);
             return adaptador;
         }
+        public static SqlDataAdapter BuscarFuncionario(string Tipo, string Arg)
+        {
+            sql.CommandText = $"SELECT * FROM Funcionarios WHERE {Tipo} LIKE '%{Arg}%'";
+            Executar(out SqlDataAdapter adaptador);
+            return adaptador;
+        }
+        public static SqlDataAdapter BuscarMaterial(string Tipo, string Arg)
+        {
+            sql.CommandText = $"SELECT * FROM Materiais WHERE {Tipo} LIKE '%{Arg}%'";
+            Executar(out SqlDataAdapter adaptador);
+            return adaptador;
+        }
+        public static SqlDataAdapter BuscarEmprestimos(string Tipo, string Arg)
+        {
+            sql.CommandText = $"SELECT * FROM Emprestimos WHERE {Tipo} LIKE '%{Arg}%'";
+            Executar(out SqlDataAdapter adaptador);
+            return adaptador;
+        }
         public static Funcionario RetornarFuncionarioUnico(string nome)
         {
             sql.CommandText = $"SELECT Nome, Email, Cpf, Funcao FROM Funcionarios WHERE Nome = '{nome}'";

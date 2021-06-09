@@ -30,19 +30,23 @@ namespace EmprestaBurracha.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.LabelDevolução = new System.Windows.Forms.Label();
             this.SelecionadorDatas = new System.Windows.Forms.DateTimePicker();
             this.MateriaisDVG = new System.Windows.Forms.DataGridView();
+            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materiaisBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emprestaBurrachaDataSet1 = new EmprestaBurracha.EmprestaBurrachaDataSet1();
             this.FuncionariosDGV = new System.Windows.Forms.DataGridView();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.funcionariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emprestaBurrachaDataSet = new EmprestaBurracha.EmprestaBurrachaDataSet();
             this.LabelQuant = new System.Windows.Forms.Label();
@@ -53,10 +57,8 @@ namespace EmprestaBurracha.Forms
             this.emprestaBurrachaDataSet2 = new EmprestaBurracha.EmprestaBurrachaDataSet2();
             this.emprestimosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.emprestimosTableAdapter = new EmprestaBurracha.EmprestaBurrachaDataSet2TableAdapters.EmprestimosTableAdapter();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidadeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntradaTexto = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MateriaisDVG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materiaisBindingSource)).BeginInit();
@@ -72,6 +74,8 @@ namespace EmprestaBurracha.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.EntradaTexto);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.LabelDevolução);
             this.panel1.Controls.Add(this.SelecionadorDatas);
@@ -85,6 +89,13 @@ namespace EmprestaBurracha.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(933, 450);
             this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(449, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(81, 447);
+            this.panel2.TabIndex = 15;
             // 
             // LabelDevolução
             // 
@@ -113,38 +124,54 @@ namespace EmprestaBurracha.Forms
             this.MateriaisDVG.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
             this.MateriaisDVG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MateriaisDVG.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MateriaisDVG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MateriaisDVG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.MateriaisDVG.ColumnHeadersHeight = 26;
             this.MateriaisDVG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomeDataGridViewTextBoxColumn1,
             this.quantidadeDataGridViewTextBoxColumn});
             this.MateriaisDVG.DataSource = this.materiaisBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MateriaisDVG.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MateriaisDVG.Location = new System.Drawing.Point(12, 212);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MateriaisDVG.DefaultCellStyle = dataGridViewCellStyle8;
+            this.MateriaisDVG.Location = new System.Drawing.Point(12, 247);
             this.MateriaisDVG.Name = "MateriaisDVG";
             this.MateriaisDVG.RowHeadersVisible = false;
             this.MateriaisDVG.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            this.MateriaisDVG.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            this.MateriaisDVG.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.MateriaisDVG.RowTemplate.Height = 24;
             this.MateriaisDVG.Size = new System.Drawing.Size(465, 200);
             this.MateriaisDVG.TabIndex = 12;
+            // 
+            // nomeDataGridViewTextBoxColumn1
+            // 
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.Width = 315;
+            // 
+            // quantidadeDataGridViewTextBoxColumn
+            // 
+            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Quantidade";
+            this.quantidadeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
+            this.quantidadeDataGridViewTextBoxColumn.Width = 125;
             // 
             // materiaisBindingSource
             // 
@@ -158,45 +185,53 @@ namespace EmprestaBurracha.Forms
             // 
             // FuncionariosDGV
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.FuncionariosDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.FuncionariosDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.FuncionariosDGV.AutoGenerateColumns = false;
             this.FuncionariosDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
             this.FuncionariosDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FuncionariosDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.FuncionariosDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FuncionariosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 8F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FuncionariosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.FuncionariosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FuncionariosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomeDataGridViewTextBoxColumn});
             this.FuncionariosDGV.DataSource = this.funcionariosBindingSource;
             this.FuncionariosDGV.GridColor = System.Drawing.Color.Maroon;
-            this.FuncionariosDGV.Location = new System.Drawing.Point(12, 6);
+            this.FuncionariosDGV.Location = new System.Drawing.Point(12, 36);
             this.FuncionariosDGV.Name = "FuncionariosDGV";
             this.FuncionariosDGV.RowHeadersVisible = false;
             this.FuncionariosDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 7.8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.FuncionariosDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 7.8F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.FuncionariosDGV.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.FuncionariosDGV.RowTemplate.Height = 24;
-            this.FuncionariosDGV.Size = new System.Drawing.Size(465, 200);
+            this.FuncionariosDGV.Size = new System.Drawing.Size(465, 177);
             this.FuncionariosDGV.TabIndex = 11;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.Width = 435;
             // 
             // funcionariosBindingSource
             // 
@@ -275,36 +310,21 @@ namespace EmprestaBurracha.Forms
             // 
             this.emprestimosTableAdapter.ClearBeforeFill = true;
             // 
-            // nomeDataGridViewTextBoxColumn
+            // EntradaTexto
             // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.Width = 435;
+            this.EntradaTexto.Location = new System.Drawing.Point(12, 6);
+            this.EntradaTexto.Name = "EntradaTexto";
+            this.EntradaTexto.Size = new System.Drawing.Size(322, 22);
+            this.EntradaTexto.TabIndex = 17;
+            this.EntradaTexto.TextChanged += new System.EventHandler(this.EntradaTexto_TextChanged);
             // 
-            // panel2
+            // textBox1
             // 
-            this.panel2.Location = new System.Drawing.Point(449, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(81, 447);
-            this.panel2.TabIndex = 15;
-            // 
-            // nomeDataGridViewTextBoxColumn1
-            // 
-            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
-            this.nomeDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
-            this.nomeDataGridViewTextBoxColumn1.Width = 315;
-            // 
-            // quantidadeDataGridViewTextBoxColumn
-            // 
-            this.quantidadeDataGridViewTextBoxColumn.DataPropertyName = "Quantidade";
-            this.quantidadeDataGridViewTextBoxColumn.HeaderText = "Quantidade";
-            this.quantidadeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.quantidadeDataGridViewTextBoxColumn.Name = "quantidadeDataGridViewTextBoxColumn";
-            this.quantidadeDataGridViewTextBoxColumn.Width = 125;
+            this.textBox1.Location = new System.Drawing.Point(12, 219);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(322, 22);
+            this.textBox1.TabIndex = 19;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Emprestar
             // 
@@ -353,5 +373,7 @@ namespace EmprestaBurracha.Forms
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantidadeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox EntradaTexto;
     }
 }

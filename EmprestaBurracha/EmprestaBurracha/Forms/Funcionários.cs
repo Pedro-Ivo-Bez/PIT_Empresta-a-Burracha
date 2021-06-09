@@ -23,6 +23,7 @@ namespace EmprestaBurracha.Forms
             // TODO: esta linha de código carrega dados na tabela 'emprestaBurrachaDataSet.Funcionarios'. Você pode movê-la ou removê-la conforme necessário.
             this.funcionariosTableAdapter.Fill(this.emprestaBurrachaDataSet.Funcionarios);
             Listar();
+            EntradaTexto.Enabled = false;
         }
         
         private void Listar()
@@ -47,7 +48,28 @@ namespace EmprestaBurracha.Forms
                 else MessageBox.Show("Erro ao buscar!");
             }
         }
-        
+        private void ListarTipo(string Tipo, string Arg)
+        {
+            SqlDataAdapter adaptador = null;
+            try
+            {
+                adaptador = DataBase.BuscarFuncionario(Tipo, Arg);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Erro ao buscar!");
+            }
+            finally
+            {
+                if (adaptador != null)
+                {
+                    DataTable tabela = new DataTable();
+                    adaptador.Fill(tabela);
+                    FuncionariosDGV.DataSource = tabela;
+                }
+                else MessageBox.Show("Erro ao buscar!");
+            }
+        }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -119,6 +141,21 @@ namespace EmprestaBurracha.Forms
             Email.Text = "";
             Cpf.Text = "";
             Funçao.Text = "";
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ListarTipo(Entrada.Text, EntradaTexto.Text);
+        }
+
+        private void Entrada_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EntradaTexto.Enabled = true;
         }
     }
 }

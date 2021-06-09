@@ -40,6 +40,28 @@ namespace EmprestaBurracha.Forms
                 else MessageBox.Show("Erro ao buscar!");
             }
         }
+        private void ListarTipo(string Tipo, string Arg)
+        {
+            SqlDataAdapter adaptador = null;
+            try
+            {
+                adaptador = DataBase.BuscarEmprestimos(Tipo, Arg);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Erro ao buscar!");
+            }
+            finally
+            {
+                if (adaptador != null)
+                {
+                    DataTable tabela = new DataTable();
+                    adaptador.Fill(tabela);
+                    EmprestimosDGV.DataSource = tabela;
+                }
+                else MessageBox.Show("Erro ao buscar!");
+            }
+        }
 
         private void Empréstimos_Load(object sender, EventArgs e)
         {
@@ -67,6 +89,16 @@ namespace EmprestaBurracha.Forms
             }        
             DataBase.DesfazerEmprestimo(IdEmprestimo);
             Listar();
+        }
+
+        private void Entrada_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EntradaTexto.Enabled = true;
+        }
+
+        private void EntradaTexto_TextChanged(object sender, EventArgs e)
+        {
+            ListarTipo(Entrada.Text, EntradaTexto.Text);
         }
     }
 }

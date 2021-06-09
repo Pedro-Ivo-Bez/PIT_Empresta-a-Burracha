@@ -30,10 +30,11 @@ namespace EmprestaBurracha.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.FuncionariosDGV = new System.Windows.Forms.DataGridView();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +54,8 @@ namespace EmprestaBurracha.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.funcionariosTableAdapter = new EmprestaBurracha.EmprestaBurrachaDataSetTableAdapters.FuncionariosTableAdapter();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.Entrada = new System.Windows.Forms.ComboBox();
+            this.EntradaTexto = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FuncionariosDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funcionariosBindingSource)).BeginInit();
@@ -63,6 +65,8 @@ namespace EmprestaBurracha.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.panel1.Controls.Add(this.EntradaTexto);
+            this.panel1.Controls.Add(this.Entrada);
             this.panel1.Controls.Add(this.iconButton3);
             this.panel1.Controls.Add(this.FuncionariosDGV);
             this.panel1.Controls.Add(this.Erro);
@@ -85,27 +89,49 @@ namespace EmprestaBurracha.Forms
             this.panel1.Size = new System.Drawing.Size(1067, 554);
             this.panel1.TabIndex = 0;
             // 
+            // iconButton3
+            // 
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton3.ForeColor = System.Drawing.Color.White;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Backspace;
+            this.iconButton3.IconColor = System.Drawing.Color.White;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 24;
+            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.Location = new System.Drawing.Point(219, 399);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(110, 36);
+            this.iconButton3.TabIndex = 12;
+            this.iconButton3.Text = "Limpar";
+            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
             // FuncionariosDGV
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.FuncionariosDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            this.FuncionariosDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.FuncionariosDGV.AutoGenerateColumns = false;
             this.FuncionariosDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
             this.FuncionariosDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.FuncionariosDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FuncionariosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FuncionariosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.FuncionariosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FuncionariosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nomeDataGridViewTextBoxColumn,
@@ -114,19 +140,19 @@ namespace EmprestaBurracha.Forms
             this.funcaoDataGridViewTextBoxColumn});
             this.FuncionariosDGV.DataSource = this.funcionariosBindingSource;
             this.FuncionariosDGV.GridColor = System.Drawing.Color.Maroon;
-            this.FuncionariosDGV.Location = new System.Drawing.Point(-3, 0);
+            this.FuncionariosDGV.Location = new System.Drawing.Point(0, 47);
             this.FuncionariosDGV.Name = "FuncionariosDGV";
             this.FuncionariosDGV.RowHeadersVisible = false;
             this.FuncionariosDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.FuncionariosDGV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            this.FuncionariosDGV.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.FuncionariosDGV.RowTemplate.Height = 24;
-            this.FuncionariosDGV.Size = new System.Drawing.Size(1070, 310);
+            this.FuncionariosDGV.Size = new System.Drawing.Size(1070, 255);
             this.FuncionariosDGV.TabIndex = 10;
             this.FuncionariosDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FuncionariosDGV_CellContentClick);
             // 
@@ -304,27 +330,30 @@ namespace EmprestaBurracha.Forms
             // 
             this.funcionariosTableAdapter.ClearBeforeFill = true;
             // 
-            // iconButton3
+            // Entrada
             // 
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.White;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Backspace;
-            this.iconButton3.IconColor = System.Drawing.Color.White;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(219, 399);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(110, 36);
-            this.iconButton3.TabIndex = 12;
-            this.iconButton3.Text = "Limpar";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.Entrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.Entrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Entrada.ForeColor = System.Drawing.Color.White;
+            this.Entrada.FormattingEnabled = true;
+            this.Entrada.Items.AddRange(new object[] {
+            "Nome",
+            "Email",
+            "Cpf",
+            "Funcao"});
+            this.Entrada.Location = new System.Drawing.Point(3, 12);
+            this.Entrada.Name = "Entrada";
+            this.Entrada.Size = new System.Drawing.Size(171, 29);
+            this.Entrada.TabIndex = 13;
+            this.Entrada.SelectedIndexChanged += new System.EventHandler(this.Entrada_SelectedIndexChanged);
+            // 
+            // EntradaTexto
+            // 
+            this.EntradaTexto.Location = new System.Drawing.Point(181, 18);
+            this.EntradaTexto.Name = "EntradaTexto";
+            this.EntradaTexto.Size = new System.Drawing.Size(418, 27);
+            this.EntradaTexto.TabIndex = 14;
+            this.EntradaTexto.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Funcionários
             // 
@@ -368,5 +397,7 @@ namespace EmprestaBurracha.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn cpfDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn funcaoDataGridViewTextBoxColumn;
         private FontAwesome.Sharp.IconButton iconButton3;
+        private System.Windows.Forms.TextBox EntradaTexto;
+        private System.Windows.Forms.ComboBox Entrada;
     }
 }

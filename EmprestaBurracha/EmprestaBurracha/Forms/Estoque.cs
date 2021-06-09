@@ -53,6 +53,28 @@ namespace EmprestaBurracha.Forms
                 else MessageBox.Show("Erro ao buscar!");
             }
         }
+        private void ListarTipo(string Arg)
+        {
+            SqlDataAdapter adaptador = null;
+            try
+            {
+                adaptador = DataBase.BuscarMaterial("Nome", Arg);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Erro ao buscar!");
+            }
+            finally
+            {
+                if (adaptador != null)
+                {
+                    DataTable tabela = new DataTable();
+                    adaptador.Fill(tabela);
+                    MateriaisDVG.DataSource = tabela;
+                }
+                else MessageBox.Show("Erro ao buscar!");
+            }
+        }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
@@ -101,6 +123,11 @@ namespace EmprestaBurracha.Forms
             Quantidade.Value = 0;
             Nome.Enabled = true;
             Listar();
+        }
+
+        private void EntradaTexto_TextChanged(object sender, EventArgs e)
+        {
+            ListarTipo(EntradaTexto.Text);
         }
     }
 }
