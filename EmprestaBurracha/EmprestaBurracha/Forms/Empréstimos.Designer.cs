@@ -30,10 +30,12 @@ namespace EmprestaBurracha.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EntradaTexto = new System.Windows.Forms.TextBox();
+            this.Entrada = new System.Windows.Forms.ComboBox();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.EmprestimosDGV = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +51,6 @@ namespace EmprestaBurracha.Forms
             this.emprestimosTableAdapter = new EmprestaBurracha.EmprestaBurrachaDataSet2TableAdapters.EmprestimosTableAdapter();
             this.emprestimosBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.emprestimosTableAdapter1 = new EmprestaBurracha.EmprestaBurrachaDataSet3TableAdapters.EmprestimosTableAdapter();
-            this.EntradaTexto = new System.Windows.Forms.TextBox();
-            this.Entrada = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmprestimosDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emprestimosBindingSource3)).BeginInit();
@@ -74,6 +74,29 @@ namespace EmprestaBurracha.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1067, 554);
             this.panel1.TabIndex = 0;
+            // 
+            // EntradaTexto
+            // 
+            this.EntradaTexto.Location = new System.Drawing.Point(181, 18);
+            this.EntradaTexto.Name = "EntradaTexto";
+            this.EntradaTexto.Size = new System.Drawing.Size(418, 22);
+            this.EntradaTexto.TabIndex = 16;
+            this.EntradaTexto.TextChanged += new System.EventHandler(this.EntradaTexto_TextChanged);
+            // 
+            // Entrada
+            // 
+            this.Entrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            this.Entrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Entrada.ForeColor = System.Drawing.Color.White;
+            this.Entrada.FormattingEnabled = true;
+            this.Entrada.Items.AddRange(new object[] {
+            "NomeFuncionario",
+            "Material"});
+            this.Entrada.Location = new System.Drawing.Point(3, 12);
+            this.Entrada.Name = "Entrada";
+            this.Entrada.Size = new System.Drawing.Size(171, 24);
+            this.Entrada.TabIndex = 15;
+            this.Entrada.SelectedIndexChanged += new System.EventHandler(this.Entrada_SelectedIndexChanged);
             // 
             // iconButton3
             // 
@@ -99,25 +122,25 @@ namespace EmprestaBurracha.Forms
             // 
             // EmprestimosDGV
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.EmprestimosDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.EmprestimosDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.EmprestimosDGV.AutoGenerateColumns = false;
             this.EmprestimosDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
             this.EmprestimosDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.EmprestimosDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EmprestimosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(26)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EmprestimosDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.EmprestimosDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EmprestimosDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -131,15 +154,15 @@ namespace EmprestaBurracha.Forms
             this.EmprestimosDGV.Name = "EmprestimosDGV";
             this.EmprestimosDGV.RowHeadersVisible = false;
             this.EmprestimosDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.EmprestimosDGV.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.EmprestimosDGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.EmprestimosDGV.RowTemplate.Height = 24;
-            this.EmprestimosDGV.Size = new System.Drawing.Size(999, 310);
+            this.EmprestimosDGV.Size = new System.Drawing.Size(999, 331);
             this.EmprestimosDGV.TabIndex = 11;
             // 
             // ID
@@ -219,29 +242,6 @@ namespace EmprestaBurracha.Forms
             // emprestimosTableAdapter1
             // 
             this.emprestimosTableAdapter1.ClearBeforeFill = true;
-            // 
-            // EntradaTexto
-            // 
-            this.EntradaTexto.Location = new System.Drawing.Point(181, 18);
-            this.EntradaTexto.Name = "EntradaTexto";
-            this.EntradaTexto.Size = new System.Drawing.Size(418, 22);
-            this.EntradaTexto.TabIndex = 16;
-            this.EntradaTexto.TextChanged += new System.EventHandler(this.EntradaTexto_TextChanged);
-            // 
-            // Entrada
-            // 
-            this.Entrada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(51)))));
-            this.Entrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Entrada.ForeColor = System.Drawing.Color.White;
-            this.Entrada.FormattingEnabled = true;
-            this.Entrada.Items.AddRange(new object[] {
-            "NomeFuncionario",
-            "Material"});
-            this.Entrada.Location = new System.Drawing.Point(3, 12);
-            this.Entrada.Name = "Entrada";
-            this.Entrada.Size = new System.Drawing.Size(171, 24);
-            this.Entrada.TabIndex = 15;
-            this.Entrada.SelectedIndexChanged += new System.EventHandler(this.Entrada_SelectedIndexChanged);
             // 
             // Empréstimos
             // 
